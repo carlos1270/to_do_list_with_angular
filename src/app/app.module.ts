@@ -4,6 +4,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+ { path: "", component: AppComponent },
+ { path: "dashboard", component: AppComponent }
+];
 
 @NgModule({
   declarations: [
@@ -12,7 +18,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
   imports: [
     BrowserModule,
     FontAwesomeModule,
-    DashboardModule
+    DashboardModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
