@@ -1,5 +1,6 @@
 # ToDoList
 
+Study project to practice angular through a to-do list application.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
 ## Development server
