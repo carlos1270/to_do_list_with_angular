@@ -1,14 +1,18 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { RouterModule, Routes } from '@angular/router';
 
+//Components
+import { FrameListComponent } from './dashboard/frame-list/frame-list.component';
+import { DashboardIndexComponent } from './dashboard/dashboard-index/dashboard-index.component';
+
 const routes: Routes = [
- { path: "", component: AppComponent },
- { path: "dashboard", component: AppComponent }
+ { path: "", component: DashboardIndexComponent },
+ { path: "dashboard", component: DashboardIndexComponent },
+ { path: "dashboard/frames", component: FrameListComponent }
 ];
 
 @NgModule({

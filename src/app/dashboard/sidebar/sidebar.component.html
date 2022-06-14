@@ -14,9 +14,14 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" [routerLink]="['dashboard']">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span></a>
+            <span>Dashboard</span>
+        </a>
+        <a class="nav-link" [routerLink]="['dashboard/frames']">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Quadros</span>
+        </a>
     </li>
 </ul>
 <!-- End of Sidebar -->
