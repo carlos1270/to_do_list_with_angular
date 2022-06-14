@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http'
 
 //Components
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -28,7 +29,8 @@ import { DashboardIndexComponent } from './dashboard-index/dashboard-index.compo
   imports: [
     CommonModule,
     FontAwesomeModule,
-    RouterModule
+    RouterModule,
+    HttpClientModule
   ]
 })
 export class DashboardModule { }

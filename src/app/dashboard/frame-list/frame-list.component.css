@@ -1,0 +1,13 @@
+.name-frame {
+    font-size: 20px;
+}
+
+.card {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.card:hover {
+    background-color: rgb(236, 236, 236);
+    transition: 0.3s;
+}
