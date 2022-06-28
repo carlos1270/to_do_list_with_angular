@@ -11,8 +11,7 @@ import { DashboardIndexComponent } from './dashboard/dashboard-index/dashboard-i
 
 const routes: Routes = [
  { path: "", component: DashboardIndexComponent },
- { path: "dashboard", component: DashboardIndexComponent },
- { path: "dashboard/frames", component: FrameListComponent }
+ { path: "frames", component: FrameListComponent }
 ];
 
 @NgModule({
