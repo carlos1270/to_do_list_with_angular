@@ -16,10 +16,10 @@ export class FrameListComponent implements OnInit {
   constructor(private frameListService: FrameListService) { }
 
   ngOnInit(): void {
-    this.frameListService.getFrames().subscribe(
-      res => this.frames = res,
-      error => console.log(error)
-    );
+    this.frameListService.getFrames().subscribe({
+      next: (res) => this.frames = res,
+      error: (error) => console.log(error)
+    });
   }
 
 }
