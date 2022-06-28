@@ -1,1 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+.modal-title {
+    color: rgba(0, 0, 0, 0.65);
+    font-weight: bolder;
+}

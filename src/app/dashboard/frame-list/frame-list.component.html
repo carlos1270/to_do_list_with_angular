@@ -10,7 +10,20 @@
             <div class="container-fluid">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-4" *ngFor="let frame of frames">
+                        <div class="col-md-10">
+                            <h1>Quadros</h1>
+                        </div>
+                        <div class="col-md-2">
+                            <a data-toggle="modal" data-target="#addFrameModal" class="btn btn-primary btn-icon-split">
+                                <span class="icon text-white-50">
+                                    <fa-icon [icon]="faPlusCircle"></fa-icon>
+                                </span>
+                                <span class="text">Criar quadro</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-card" *ngFor="let frame of frames">
                             <div class="card border-left-info shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
@@ -31,6 +44,39 @@
             </div>
             <!-- /.container-fluid -->
         </div>
+
+        <!-- Modal Add Frame -->
+        <div class="modal fade" id="addFrameModal" tabindex="-1" aria-labelledby="addFrameModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addFrameModalLabel">Adicionar um novo quadro</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form [formGroup]="addFrameForm">
+                            <label for="frameNameInput" id="frameNameLabel">Nome do quadro</label>
+                            <input id="frameNameInput" type="text" formControlName="frameName" [ngClass]="{'form-control': true, 'is-valid': addFrameForm.get('frameName')?.valid, 'is-invalid': addFrameForm.get('frameName')?.invalid && (addFrameForm.get('frameName')?.dirty || this.addFrameForm.get('frameName')?.touched) }" placeholder="Exercícios">
+                            
+                            <div class="valid-feedback" *ngIf="addFrameForm.get('frameName')?.valid">
+                                Nome válido!
+                            </div>
+                            <div id="frameNameInputFeedback" class="invalid-feedback" *ngIf="addFrameForm.get('frameName')?.invalid && (addFrameForm.get('frameName')?.dirty || addFrameForm.get('frameName')?.touched)">
+                                Por favor, digite algo para o nome do quadro.
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="closeModalAddFrame" type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-primary" (click)="submitFormAddFrame()" [disabled]="addFrameForm.invalid">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of Modal Add Frame -->
+
         <!-- End of Main Content -->
         <app-copyright></app-copyright>
     </div>

@@ -18,4 +18,11 @@ export class FrameListService {
       error => error
     )
   }
+
+  public saveFrame(frameName: String): Observable<Frame> {
+    return this.http.post<Frame>(`${this.url}frames`, {name: frameName}).pipe(
+      res => res,
+      error => error
+    )
+  }
 }
