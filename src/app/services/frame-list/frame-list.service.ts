@@ -25,4 +25,11 @@ export class FrameListService {
       error => error
     )
   }
+
+  public updateFrame(frame: Frame): Observable<Frame> {
+    return this.http.put<Frame>(`${this.url}frames/${frame.id}`, {name: frame.name}).pipe(
+      res => res,
+      error => error
+    )
+  }
 }

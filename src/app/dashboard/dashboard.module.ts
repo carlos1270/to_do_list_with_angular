@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //Components
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -10,7 +11,6 @@ import { HeaderComponent } from './header/header.component';
 import { CopyrightComponent } from './copyright/copyright.component';
 import { FrameListComponent } from './frame-list/frame-list.component';
 import { DashboardIndexComponent } from './dashboard-index/dashboard-index.component';
-import { ReactiveFormsModule } from '@angular/forms';
 
 //Pipes
 import { TruncatePipe } from '../pipes/truncate.pipe';
@@ -38,7 +38,8 @@ import { FrameCardComponent } from './frame-card/frame-card.component';
     FontAwesomeModule,
     RouterModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ]
 })
 export class DashboardModule { }

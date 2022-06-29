@@ -3,11 +3,11 @@
         <div class="row no-gutters align-items-center">
             <div class="col-md-6">
                 <div class="text-xs font-weight-bold text-info text-uppercase mt-2">
-                    <span class="name-frame">{{frame.name | truncate: 10}}</span>
+                    <input type="text" class="form-control name-frame" [(ngModel)]="frame.name" [disabled]="editFrame" />
                 </div>
             </div>
             <div class="col-md-2">
-                <fa-icon class="icon-feature-show btn btn-primary" [icon]="faPencil" title="Editar quadro" ></fa-icon>
+                <fa-icon [ngClass]="{'icon-feature-show': true, 'btn': true, 'btn-primary': editFrame, 'btn-success': !editFrame }" [icon]="iconInput" title="{{editFrame ? 'Editar quadro' : 'Salvar'}}" (click)="editActiveToggle()"></fa-icon>
             </div>
         </div>
     </div>

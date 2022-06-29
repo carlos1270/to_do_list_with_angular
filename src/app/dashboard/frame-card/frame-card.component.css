@@ -1,11 +1,3 @@
-.name-frame {
-    font-size: 18px;
-    max-width: 50px; /* Tamanho */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-}
-
 .card {
     transition: 0.3s;
 }
@@ -17,4 +9,37 @@
 .card:hover {
     background-color: rgb(236, 236, 236);
     transition: 0.3s;
+}
+
+.card:hover .name-frame {
+    background-color: rgb(236, 236, 236);
+    transition: 0.3s;
+}
+
+.name-frame {
+    width: 95%;
+    border: none;
+    transition: 0.3s;
+    color: #36b9cc;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    border-bottom: 1px solid #36b9cc;
+    border-radius: 0px;
+}
+
+.name-frame:focus {
+    box-shadow: none;
+}
+
+.name-frame:hover {
+    background-color: rgb(236, 236, 236);
+    transition: 0.3s;
+}
+
+.name-frame:disabled {
+    background-color: rgb(255, 255, 255);
+    margin-bottom: 0.25rem;
+    border-bottom: none;
 }
