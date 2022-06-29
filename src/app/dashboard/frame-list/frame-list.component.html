@@ -23,18 +23,8 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4 col-card" *ngFor="let frame of frames">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col-md-6">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mt-2">
-                                                <span class="name-frame">{{ frame.name | truncate: 10 }}</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="col-md-4 col-card" *ngFor="let frameCard of frames">
+                            <app-frame-card [frame]="frameCard"></app-frame-card>
                         </div>
                     </div>
                 </div>

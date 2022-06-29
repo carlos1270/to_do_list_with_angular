@@ -14,6 +14,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 //Pipes
 import { TruncatePipe } from '../pipes/truncate.pipe';
+import { FrameCardComponent } from './frame-card/frame-card.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { TruncatePipe } from '../pipes/truncate.pipe';
     CopyrightComponent,
     FrameListComponent,
     DashboardIndexComponent,
-    TruncatePipe
+    TruncatePipe,
+    FrameCardComponent
   ],
   exports: [
     SidebarComponent,

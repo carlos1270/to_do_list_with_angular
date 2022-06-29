@@ -15,10 +15,10 @@ export class FrameListComponent implements OnInit {
   faClipboardList = faClipboardList;
   faPlusCircle = faPlus;
 
-  public frames: Array<Frame> = []
+  public frames: Array<Frame> = [];
   public addFrameForm: FormGroup = this.formBuilder.group({
     frameName: ['',[Validators.required]]
-  })
+  });
 
   constructor(
     private frameListService: FrameListService,
