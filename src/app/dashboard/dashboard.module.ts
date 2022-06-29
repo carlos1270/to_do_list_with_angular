@@ -12,6 +12,9 @@ import { FrameListComponent } from './frame-list/frame-list.component';
 import { DashboardIndexComponent } from './dashboard-index/dashboard-index.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
+//Pipes
+import { TruncatePipe } from '../pipes/truncate.pipe';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     CopyrightComponent,
     FrameListComponent,
-    DashboardIndexComponent
+    DashboardIndexComponent,
+    TruncatePipe
   ],
   exports: [
     SidebarComponent,

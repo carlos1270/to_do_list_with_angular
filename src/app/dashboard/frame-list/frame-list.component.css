@@ -1,10 +1,17 @@
 .name-frame {
-    font-size: 20px;
+    font-size: 18px;
+    max-width: 50px; /* Tamanho */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .card {
-    cursor: pointer;
     transition: 0.3s;
+}
+
+.icon-feature-show {
+    cursor: pointer;
 }
 
 .col-card {
