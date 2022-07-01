@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { faClipboardList, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { NotifierService } from 'angular-notifier';
+
+//Interfaces
 import { Frame } from 'src/app/interfaces/frame';
+
+//Services
 import { FrameListService } from 'src/app/services/frame-list/frame-list.service';
 import * as $ from 'jquery';
 
@@ -22,7 +27,8 @@ export class FrameListComponent implements OnInit {
 
   constructor(
     private frameListService: FrameListService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private notifierService: NotifierService
   ) { }
 
   ngOnInit(): void {
@@ -35,7 +41,7 @@ export class FrameListComponent implements OnInit {
   public submitFormAddFrame() {
     $('#closeModalAddFrame').trigger('click');
     this.frameListService.saveFrame(this.addFrameForm.value.frameName).subscribe({
-      next: (res) => this.frames.push(res),
+      next: (res) => this.pushFrameList(res),
     })
     this.addFrameForm.setValue({frameName: ""});
   }
@@ -48,6 +54,15 @@ export class FrameListComponent implements OnInit {
       }
     });
     this.frames = frames;
+  }
+
+  private pushFrameList(frame: Frame) {
+    this.frames.push(frame);
+    this.showNotificationSuccess("Novo quadro criado com sucesso!");
+  }
+
+  private showNotificationSuccess(text: string) {
+    this.notifierService.notify('success', text);
   }
 }
 

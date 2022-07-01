@@ -4,6 +4,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NotifierModule }  from  'angular-notifier';
 
 //Components
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -39,7 +40,8 @@ import { FrameCardComponent } from './frame-card/frame-card.component';
     RouterModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NotifierModule
   ]
 })
 export class DashboardModule { }

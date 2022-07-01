@@ -2,6 +2,7 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { faCheck, faExclamationTriangle, faPencil, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Frame } from 'src/app/interfaces/frame';
 import { FrameListService } from 'src/app/services/frame-list/frame-list.service';
+import { NotifierService } from 'angular-notifier';
 
 @Component({
   selector: 'app-frame-card',
@@ -24,7 +25,10 @@ export class FrameCardComponent implements OnInit {
   public deleteFrameModalLink: string = "";
   public closeModalDeleteFrame: string = "";
   
-  constructor(private frameListService: FrameListService) { }
+  constructor(
+    private frameListService: FrameListService,
+    private notifierService: NotifierService
+  ) { }
 
   ngOnInit(): void {
     this.deleteFrameModal = `deleteFrameModal${this.frame.id}`;
@@ -46,7 +50,7 @@ export class FrameCardComponent implements OnInit {
   private saveFrame() {
     if (this.frame.name.length > 2) {
       this.frameListService.updateFrame(this.frame).subscribe({
-        next: (res) => this.frame = res,
+        next: (res) => this.updateComponent(res),
         error: (error) => console.log(error)
       });
     }
@@ -59,8 +63,18 @@ export class FrameCardComponent implements OnInit {
     });
   }
 
+  private updateComponent(frame: Frame) {
+    this.frame = frame;
+    this.showNotificationSuccess("Quadro atualizado com sucesso!");
+  }
+
   private destroyComponent() {
     $(`#${this.closeModalDeleteFrame}`).trigger('click');
+    this.showNotificationSuccess("Quadro deletado com sucesso!");
     this.deleteFrameEvent.emit(this.frame);
+  }
+
+  private showNotificationSuccess(text: string) {
+    this.notifierService.notify('success', text);
   }
 }

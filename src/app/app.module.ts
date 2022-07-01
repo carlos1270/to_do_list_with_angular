@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { RouterModule, Routes } from '@angular/router';
+import { NotifierModule }  from  'angular-notifier';
 
 //Components
 import { FrameListComponent } from './dashboard/frame-list/frame-list.component';
@@ -22,7 +23,8 @@ const routes: Routes = [
     BrowserModule,
     FontAwesomeModule,
     DashboardModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    NotifierModule
   ],
   providers: [],
   bootstrap: [AppComponent]
