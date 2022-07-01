@@ -24,7 +24,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-4 col-card" *ngFor="let frameCard of frames">
-                            <app-frame-card [frame]="frameCard"></app-frame-card>
+                            <app-frame-card [frame]="frameCard" (deleteFrameEvent)="updateFrameList($event)" ></app-frame-card>
                         </div>
                     </div>
                 </div>

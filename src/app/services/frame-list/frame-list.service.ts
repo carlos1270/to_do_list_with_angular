@@ -32,4 +32,11 @@ export class FrameListService {
       error => error
     )
   }
+
+  public deleteFrame(frame: Frame): Observable<Frame> {
+    return this.http.delete<Frame>(`${this.url}frames/${frame.id}`).pipe(
+      res => res,
+      error => error
+    )
+  }
 }

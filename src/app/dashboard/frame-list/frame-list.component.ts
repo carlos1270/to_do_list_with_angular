@@ -39,5 +39,15 @@ export class FrameListComponent implements OnInit {
     })
     this.addFrameForm.setValue({frameName: ""});
   }
+
+  public updateFrameList(eventFrame: Frame) {
+    let frames: Array<Frame> = [];
+    this.frames.forEach((value)=>{
+      if (value.id != eventFrame.id) {
+        frames.push(value);
+      }
+    });
+    this.frames = frames;
+  }
 }
 

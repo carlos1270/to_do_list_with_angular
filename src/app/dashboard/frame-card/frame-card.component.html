@@ -7,8 +7,38 @@
                 </div>
             </div>
             <div class="col-md-2">
-                <fa-icon [ngClass]="{'icon-feature-show': true, 'btn': true, 'btn-primary': editFrame, 'btn-success': !editFrame }" [icon]="iconInput" title="{{editFrame ? 'Editar quadro' : 'Salvar'}}" (click)="editActiveToggle()"></fa-icon>
+                <fa-icon [ngClass]="{'icon-feature-show': true, 'btn': true, 'btn-primary': editFrame, 'btn-success': !editFrame }" [icon]="iconInput" title="{{editFrame ? 'Editar quadro ' + frame.name : 'Salvar'}}" (click)="editActiveToggle()"></fa-icon>
+            </div>
+            <div class="col-md-2">
+                <a data-toggle="modal" [attr.data-target]="deleteFrameModalLink">
+                    <fa-icon [icon]="faTrash" class="icon-feature-show btn btn-danger" title="Deletar o quadro {{frame.name}}"></fa-icon>
+                </a>
             </div>
         </div>
     </div>
 </div>
+
+<!-- Modal Add Frame -->
+<div class="modal fade" [id]="deleteFrameModal" tabindex="-1" aria-labelledby="deleteFrameModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteFrameModalLabel">Deletar o quadro {{frame.name}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger" role="alert">
+                    <span class="alert-link"> <fa-icon [icon]="faExclamationTriangle"></fa-icon> TODAS AS TAREFAS SERÃO DELETADAS!</span>
+                </div>
+                Tem certeza que deseja deletar esse quadro?
+            </div>
+            <div class="modal-footer">
+                <button [id]="closeModalDeleteFrame" type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-danger" (click)="deleteFrame()" >Deletar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of Modal Add Frame -->

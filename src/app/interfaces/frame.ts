@@ -1,4 +1,4 @@
 export interface Frame {
-    id: Number,
-    name: String
+    id: number,
+    name: string
 }
