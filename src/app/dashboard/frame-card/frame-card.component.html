@@ -10,6 +10,11 @@
                 <fa-icon [ngClass]="{'icon-feature-show': true, 'btn': true, 'btn-primary': editFrame, 'btn-success': !editFrame }" [icon]="iconInput" title="{{editFrame ? 'Editar quadro ' + frame.name : 'Salvar'}}" (click)="editActiveToggle()"></fa-icon>
             </div>
             <div class="col-md-2">
+                <a [routerLink]="['/frame', frame.id]">
+                    <fa-icon class="icon-feature-show btn btn-info" [icon]="faEye" title="Visualizar tarefas do quadro {{frame.name}}"></fa-icon>
+                </a>
+            </div>
+            <div class="col-md-2">
                 <a data-toggle="modal" [attr.data-target]="deleteFrameModalLink">
                     <fa-icon [icon]="faTrash" class="icon-feature-show btn btn-danger" title="Deletar o quadro {{frame.name}}"></fa-icon>
                 </a>

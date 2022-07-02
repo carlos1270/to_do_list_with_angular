@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { faCheck, faExclamationTriangle, faPencil, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faCheck, faExclamationTriangle, faEye, faPencil, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Frame } from 'src/app/interfaces/frame';
 import { FrameListService } from 'src/app/services/frame-list/frame-list.service';
 import { NotifierService } from 'angular-notifier';
@@ -16,6 +16,7 @@ export class FrameCardComponent implements OnInit {
   iconInput = faPencil;
   faTrash = faTrash;
   faExclamationTriangle = faExclamationTriangle;
+  faEye = faEye;
   editFrame: boolean = true;
 
   @Input() public frame: Frame = {id:0, name:""};
