@@ -25,7 +25,6 @@
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 0.25rem;
-    border-bottom: 1px solid #36b9cc;
     border-radius: 0px;
 }
 
@@ -42,4 +41,19 @@
     background-color: rgb(255, 255, 255);
     margin-bottom: 0.25rem;
     border-bottom: none;
+}
+
+.label-input-default {
+    color: rgba(0, 0, 0, 0.65);
+    font-weight: bolder;
+}
+
+.input-default {
+    border: none;
+    border-bottom: 1px solid rgb(158, 158, 158);
+    border-radius: 0px;
+}
+
+.input-default:focus {
+    box-shadow: none;
 }

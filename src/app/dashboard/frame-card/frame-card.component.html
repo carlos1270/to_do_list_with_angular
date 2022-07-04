@@ -2,12 +2,14 @@
     <div class="card-body">
         <div class="row no-gutters align-items-center">
             <div class="col-md-6">
-                <div class="text-xs font-weight-bold text-info text-uppercase mt-2">
-                    <input type="text" class="form-control name-frame" [(ngModel)]="frame.name" [disabled]="editFrame" />
+                <div class="text-xs font-weight-bold text-info text-uppercase mt-2 name-frame">
+                    {{ frame.name | truncate:10 }}
                 </div>
             </div>
             <div class="col-md-2">
-                <fa-icon [ngClass]="{'icon-feature-show': true, 'btn': true, 'btn-primary': editFrame, 'btn-success': !editFrame }" [icon]="iconInput" title="{{editFrame ? 'Editar quadro ' + frame.name : 'Salvar'}}" (click)="editActiveToggle()"></fa-icon>
+                <a data-toggle="modal" [attr.data-target]="editFrameModalLink">
+                    <fa-icon class="icon-feature-show btn btn-primary" title="Editar quadro {{frame.name}}" [icon]="faPencil"></fa-icon>
+                </a>
             </div>
             <div class="col-md-2">
                 <a [routerLink]="['/frame', frame.id]">
@@ -23,7 +25,56 @@
     </div>
 </div>
 
-<!-- Modal Add Frame -->
+<!-- Modal Edit Frame -->
+<div class="modal fade" [id]="editFrameModal" tabindex="-1" aria-labelledby="editFrameModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editFrameModalLabel">Editar o quadro {{frame.name}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="editFrameForm">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="frameNameInput" id="frameNameLabel" class="label-input-default">Nome do quadro</label>
+                            <input id="frameNameInput" type="text" formControlName="frameName" [ngClass]="{'form-control': true, 'input-default': true, 'is-valid': editFrameForm.get('frameName')?.valid, 'is-invalid': editFrameForm.get('frameName')?.invalid && (editFrameForm.get('frameName')?.dirty || this.editFrameForm.get('frameName')?.touched) }" placeholder="Exercícios">
+                            
+                            <div class="valid-feedback" *ngIf="editFrameForm.get('frameName')?.valid">
+                                Nome válido!
+                            </div>
+                            <div id="frameNameInputFeedback" class="invalid-feedback" *ngIf="editFrameForm.get('frameName')?.invalid && (editFrameForm.get('frameName')?.dirty || editFrameForm.get('frameName')?.touched)">
+                                Por favor, digite algo para o nome do quadro.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-12">
+                            <label for="backgroundImageInput" id="backgroundImageLabel" class="label-input-default">Link da imagem de fundo do quadro</label>
+                            <input id="backgroundImageInput" type="url" formControlName="backgroundImage"[ngClass]="{'form-control': true, 'input-default': true, 'is-valid': editFrameForm.get('backgroundImage')?.valid, 'is-invalid': editFrameForm.get('backgroundImage')?.invalid && (editFrameForm.get('backgroundImage')?.dirty || this.editFrameForm.get('backgroundImage')?.touched) }" placeholder="https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png" required>
+                        
+                            <div class="valid-feedback" *ngIf="editFrameForm.get('backgroundImage')?.valid">
+                                Link válido!
+                            </div>
+                            <div id="backgroundImageInputFeedback" class="invalid-feedback" *ngIf="editFrameForm.get('backgroundImage')?.invalid && (editFrameForm.get('backgroundImage')?.dirty || editFrameForm.get('backgroundImage')?.touched)">
+                                Por favor, digite um link válido.
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button [id]="closeModalEditFrame" type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" (click)="editFrame()" >Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of Modal Edit Frame -->
+
+<!-- Modal Delete Frame -->
 <div class="modal fade" [id]="deleteFrameModal" tabindex="-1" aria-labelledby="deleteFrameModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -46,4 +97,4 @@
         </div>
     </div>
 </div>
-<!-- End of Modal Add Frame -->
+<!-- End of Modal Delete Frame -->

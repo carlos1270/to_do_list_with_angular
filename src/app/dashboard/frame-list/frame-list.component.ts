@@ -22,7 +22,8 @@ export class FrameListComponent implements OnInit {
 
   public frames: Array<Frame> = [];
   public addFrameForm: FormGroup = this.formBuilder.group({
-    frameName: ['',[Validators.required]]
+    frameName: ['',[Validators.required]],
+    backgroundImage: ['', [Validators.required]]
   });
 
   constructor(
@@ -40,7 +41,7 @@ export class FrameListComponent implements OnInit {
 
   public submitFormAddFrame() {
     $('#closeModalAddFrame').trigger('click');
-    this.frameListService.saveFrame(this.addFrameForm.value.frameName).subscribe({
+    this.frameListService.saveFrame(this.addFrameForm.value.frameName, this.addFrameForm.value.backgroundImage).subscribe({
       next: (res) => this.pushFrameList(res),
     })
     this.addFrameForm.setValue({frameName: ""});

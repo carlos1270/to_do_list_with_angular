@@ -44,14 +44,31 @@
                     </div>
                     <div class="modal-body">
                         <form [formGroup]="addFrameForm">
-                            <label for="frameNameInput" id="frameNameLabel">Nome do quadro</label>
-                            <input id="frameNameInput" type="text" formControlName="frameName" [ngClass]="{'form-control': true, 'is-valid': addFrameForm.get('frameName')?.valid, 'is-invalid': addFrameForm.get('frameName')?.invalid && (addFrameForm.get('frameName')?.dirty || this.addFrameForm.get('frameName')?.touched) }" placeholder="Exercícios">
-                            
-                            <div class="valid-feedback" *ngIf="addFrameForm.get('frameName')?.valid">
-                                Nome válido!
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="frameNameInput" id="frameNameLabel" class="label-input-default">Nome do quadro</label>
+                                    <input id="frameNameInput" type="text" formControlName="frameName" [ngClass]="{'form-control': true, 'input-default': true, 'is-valid': addFrameForm.get('frameName')?.valid, 'is-invalid': addFrameForm.get('frameName')?.invalid && (addFrameForm.get('frameName')?.dirty || this.addFrameForm.get('frameName')?.touched) }" placeholder="Exercícios">
+                                    
+                                    <div class="valid-feedback" *ngIf="addFrameForm.get('frameName')?.valid">
+                                        Nome válido!
+                                    </div>
+                                    <div id="frameNameInputFeedback" class="invalid-feedback" *ngIf="addFrameForm.get('frameName')?.invalid && (addFrameForm.get('frameName')?.dirty || addFrameForm.get('frameName')?.touched)">
+                                        Por favor, digite algo para o nome do quadro.
+                                    </div>
+                                </div>
                             </div>
-                            <div id="frameNameInputFeedback" class="invalid-feedback" *ngIf="addFrameForm.get('frameName')?.invalid && (addFrameForm.get('frameName')?.dirty || addFrameForm.get('frameName')?.touched)">
-                                Por favor, digite algo para o nome do quadro.
+                            <div class="row mt-4">
+                                <div class="col-md-12">
+                                    <label for="backgroundImageInput" id="backgroundImageLabel" class="label-input-default">Link da imagem de fundo do quadro</label>
+                                    <input id="backgroundImageInput" type="url" formControlName="backgroundImage"[ngClass]="{'form-control': true, 'input-default': true, 'is-valid': addFrameForm.get('backgroundImage')?.valid, 'is-invalid': addFrameForm.get('backgroundImage')?.invalid && (addFrameForm.get('backgroundImage')?.dirty || this.addFrameForm.get('backgroundImage')?.touched) }" placeholder="https://www.google.com.br/images/branding/googlelogo/1x/googlelogo_light_color_272x92dp.png" required>
+                                
+                                    <div class="valid-feedback" *ngIf="addFrameForm.get('backgroundImage')?.valid">
+                                        Link válido!
+                                    </div>
+                                    <div id="backgroundImageInputFeedback" class="invalid-feedback" *ngIf="addFrameForm.get('backgroundImage')?.invalid && (addFrameForm.get('backgroundImage')?.dirty || addFrameForm.get('backgroundImage')?.touched)">
+                                        Por favor, digite um link válido.
+                                    </div>
+                                </div>
                             </div>
                         </form>
                     </div>

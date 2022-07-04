@@ -19,15 +19,15 @@ export class FrameListService {
     )
   }
 
-  public saveFrame(frameName: String): Observable<Frame> {
-    return this.http.post<Frame>(`${this.url}frames`, {name: frameName}).pipe(
+  public saveFrame(frameName: string, backgroundImage: string): Observable<Frame> {
+    return this.http.post<Frame>(`${this.url}frames`, {name: frameName, background_image: backgroundImage}).pipe(
       res => res,
       error => error
     )
   }
 
   public updateFrame(frame: Frame): Observable<Frame> {
-    return this.http.put<Frame>(`${this.url}frames/${frame.id}`, {name: frame.name}).pipe(
+    return this.http.put<Frame>(`${this.url}frames/${frame.id}`, {name: frame.name, background_image: frame.background_image}).pipe(
       res => res,
       error => error
     )
