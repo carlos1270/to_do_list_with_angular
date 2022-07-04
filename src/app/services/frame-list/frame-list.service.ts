@@ -26,6 +26,13 @@ export class FrameListService {
     )
   }
 
+  public getFrame(frameId: number): Observable<Frame> {
+    return this.http.get<Frame>(`${this.url}frames/${frameId}`).pipe(
+      res => res,
+      error => error
+    )
+  }
+
   public updateFrame(frame: Frame): Observable<Frame> {
     return this.http.put<Frame>(`${this.url}frames/${frame.id}`, {name: frame.name, background_image: frame.background_image}).pipe(
       res => res,
