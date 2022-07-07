@@ -2,11 +2,106 @@
     max-width: 100%;
     min-width: 100%;
     max-height: 100%;
-    min-height: 100%; 
-    margin-top: -23px;
+    min-height: 100%;
+    margin-top: -25px;
     position: fixed;
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100%;
+}
+
+.frame-container {
+    margin: 10px;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: auto;
+    position: fixed;
+    bottom: 0px;
+    top: 70px;
+}
+
+.column-task {
+    width: 250px;
+    height: max-content;
+    background-color: rgba(189, 187, 187, 0.7);
+    color: black;
+    font-size: 18px;
+    border-radius: 3px;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 5px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.column-task:last-child {
+    margin-right: 30px;
+}
+
+.column-task:hover {
+    background-color: rgba(219, 219, 219, 0.7);
+    transition: 0.3s;
+}
+ 
+.column-name {
+    font-size: 18px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.column-name:hover {
+    background-color: rgba(219, 219, 219, 0.7);
+    transition: 0.3s;
+}
+
+#input-new-column {
+    background-color: rgba(189, 187, 187, 0.562);
+    border: none;
+    width: 240px;
+    height: 27px;
+    color: black;
+    font-size: 18px;
+}
+
+#input-new-column:focus {
+    box-shadow: none;
+}
+
+#input-new-column::placeholder {
+    color: rgb(187, 187, 187);
+}
+
+.columns-task {
+    height: 100%;
+    min-height: 100%;
+    width: 100%;
+    margin: auto;
+    margin-right: 10px;
+}
+
+.columns {
+    height: 100%;
+    width: max-content;
+} 
+
+/* Works on Firefox */
+.frame-container {
+    scrollbar-width: auto;
+    scrollbar-color: rgba(189, 187, 187, 0.562) rgba(0, 0, 0, 0);
+}
+
+/* Works on Chrome, Edge, and Safari */
+.frame-container::-webkit-scrollbar {
+    width: auto;
+}
+
+.frame-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+}
+
+.frame-container::-webkit-scrollbar-thumb {
+    background-color: rgba(189, 187, 187, 0.562);
+    border-radius: 5px;
 }

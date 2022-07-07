@@ -1,3 +1,21 @@
 <div id="frame" style="background-image: url('{{frame.background_image}}');">
-    frame works!
+    <div class="frame-container">
+        <div class="columns-task">
+            <div class="columns">
+                <app-column class="column-task" *ngFor="let column of columns" [column]="column"></app-column>
+                <div class="column-task">
+                    <span *ngIf="newColumn; else formNewColumn" (click)="inputToggle()">
+                        <div class="column-name">
+                            <fa-icon [icon]="faPlus"></fa-icon>
+                            Adicionar coluna
+                        </div>
+                    </span>
+                    <ng-template #formNewColumn>
+                        <input id="input-new-column" type="text" class="form-control" (keyup.enter)="inputToggle()" placeholder="To do...">
+                    </ng-template>
+                </div>
+            </div>
+        </div>
+        
+    </div>
 </div>
