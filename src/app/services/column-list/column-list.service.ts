@@ -35,4 +35,11 @@ export class ColumnListService {
       error => error
     );
   }
+
+  public updateNameColumn(column_id: number, column_id_name: string): Observable<Column> {
+    return this.http.patch<Column>(`${this.url}columns/${column_id}`, {name: column_id_name}).pipe(
+      res => res,
+      error => error
+    );
+  }
 }

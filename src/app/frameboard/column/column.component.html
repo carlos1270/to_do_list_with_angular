@@ -1,1 +1,8 @@
-<div class="column-name">column works! {{column.name}}</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="column-name" *ngIf="editActive; else editColumn" (dblclick)="editToggle()">{{column.name | truncate:20 }}</div>
+    </div>
+</div>
+<ng-template #editColumn>
+    <input id="input-edit-column" type="text" value="{{column.name}}" class="form-control" (keyup.enter)="editToggle()" placeholder="To do...">
+</ng-template>

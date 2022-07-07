@@ -1,1 +1,16 @@
+#input-edit-column {
+    background-color: rgba(189, 187, 187, 0.562);
+    border: none;
+    width: 100%;
+    height: 27px;
+    color: black;
+    font-size: 18px;
+}
 
+#input-edit-column:focus {
+    box-shadow: none;
+}
+
+#input-edit-column::placeholder {
+    color: rgb(187, 187, 187);
+}

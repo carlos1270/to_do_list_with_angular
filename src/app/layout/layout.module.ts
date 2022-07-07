@@ -5,16 +5,21 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 //Components
 import { HeaderComponent } from './header/header.component';
 
+//Pipes
+import { TruncatePipe } from '../pipes/truncate.pipe';
+
 @NgModule({
   declarations: [
-    HeaderComponent
+    HeaderComponent,
+    TruncatePipe
   ],
   imports: [
     CommonModule,
     FontAwesomeModule
   ],
   exports: [
-    HeaderComponent
+    HeaderComponent,
+    TruncatePipe
   ]
 })
 export class LayoutModule { }

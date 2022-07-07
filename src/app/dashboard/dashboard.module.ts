@@ -14,11 +14,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { CopyrightComponent } from './copyright/copyright.component';
 import { FrameListComponent } from './frame-list/frame-list.component';
 import { DashboardIndexComponent } from './dashboard-index/dashboard-index.component';
-
-//Pipes
-import { TruncatePipe } from '../pipes/truncate.pipe';
 import { FrameCardComponent } from './frame-card/frame-card.component';
-
 
 @NgModule({
   declarations: [
@@ -26,13 +22,12 @@ import { FrameCardComponent } from './frame-card/frame-card.component';
     CopyrightComponent,
     FrameListComponent,
     DashboardIndexComponent,
-    TruncatePipe,
     FrameCardComponent
   ],
   exports: [
     SidebarComponent,
     CopyrightComponent,
-    FrameListComponent
+    FrameListComponent    
   ],
   imports: [
     CommonModule,
