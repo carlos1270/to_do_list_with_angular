@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { faEllipsisV, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faEllipsisV, faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
 import { Column } from 'src/app/interfaces/column';
 import { ColumnListService } from 'src/app/services/column-list/column-list.service';
 
@@ -11,12 +11,20 @@ import { ColumnListService } from 'src/app/services/column-list/column-list.serv
 export class ColumnComponent implements OnInit {
 
   faEllipsisV = faEllipsisV;
+  faExclamationTriangle = faExclamationTriangle;
   editActive: boolean = true;
   @Input() public column: Column = {id: 0, frame_id: 0, name: "", order: 0};
+
+  public deleteColumnModal: string = "";
+  public deleteColumnModalLink: string = "";
+  public closeModalDeleteColumn: string = "";
 
   constructor(private columnListService: ColumnListService) { }
 
   ngOnInit(): void {
+    this.deleteColumnModal = `deleteColumnModal${this.column.id}`;
+    this.deleteColumnModalLink = `#${this.deleteColumnModal}`;
+    this.closeModalDeleteColumn = `${this.deleteColumnModal}Close`;
   }
 
   public editToggle() {
@@ -26,6 +34,12 @@ export class ColumnComponent implements OnInit {
       this.updateColumn();
       this.editActive = true;
     }
+  }
+
+  public deleteColumn() {
+    this.deleteColumnModal = `deleteColumnModal${this.column.id}`;
+    this.deleteColumnModalLink = `#${this.deleteColumnModal}`;
+    this.closeModalDeleteColumn = `${this.deleteColumnModal}Close`;
   }
 
   private updateColumn() {

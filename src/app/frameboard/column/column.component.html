@@ -1,8 +1,47 @@
-<div class="row">
-    <div class="col-md-12">
-        <div class="column-name" *ngIf="editActive; else editColumn" (dblclick)="editToggle()">{{column.name | truncate:20 }}</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="column-name" *ngIf="editActive; else editColumn" (dblclick)="editToggle()">{{column.name | truncate:20 }}</div>
+        </div>
+        <div class="col-md-2">
+            <div class="dropdown no-arrow">
+                <a class="dropdown-toggle" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <fa-icon [icon]="faEllipsisV" class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400" title="Opções da coluna {{column.name}}"></fa-icon>
+                </a>
+                <div class="dropdown-menu dropdown-menu-left shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                    <div class="dropdown-header">Configurações</div>
+                    <a class="dropdown-item" href="#">Ordenar</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" data-toggle="modal" [attr.data-target]="deleteColumnModalLink">Deletar</a>
+                </div>
+            </div>
+        </div>
+        <ng-template #editColumn>
+            <input id="input-edit-column" type="text" value="{{column.name}}" class="form-control" (keyup.enter)="editToggle()" placeholder="To do...">
+        </ng-template>
+        <!-- Modal Delete Column -->
+        <div class="modal fade" [id]="deleteColumnModal" tabindex="-1" aria-labelledby="deleteColumnModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteColumnModalLabel">Deletar a coluna {{column.name}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-danger" role="alert">
+                            <span class="alert-link"> <fa-icon [icon]="faExclamationTriangle"></fa-icon> TODAS AS TAREFAS SERÃO DELETADAS!</span>
+                        </div>
+                        Tem certeza que deseja deletar essa coluna?
+                    </div>
+                    <div class="modal-footer">
+                        <button [id]="closeModalDeleteColumn" type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-danger" (click)="deleteColumn()" >Deletar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of Modal Delete Column -->
     </div>
 </div>
-<ng-template #editColumn>
-    <input id="input-edit-column" type="text" value="{{column.name}}" class="form-control" (keyup.enter)="editToggle()" placeholder="To do...">
-</ng-template>
